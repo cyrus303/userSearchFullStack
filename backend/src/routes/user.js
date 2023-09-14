@@ -17,7 +17,7 @@ router.post('/', async (request, response) => {
     const data = await UserModel.create(body);
     response.send(data);
   } catch (error) {
-    response.sendStatus(400).send(error);
+    response.send(error);
   }
 });
 
