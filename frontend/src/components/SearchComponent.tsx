@@ -39,9 +39,6 @@ const SearchComponent = () => {
       console.log(err);
       setUserDetails([]);
       setUserNotFound(true);
-      setTimeout(() => {
-        setUserNotFound(false);
-      }, 1000);
     }
   };
 
@@ -64,7 +61,15 @@ const SearchComponent = () => {
       {userDetails.length > 0 ? (
         <UserDetails userInfo={userDetails} />
       ) : (
-        userNotFound && <h2>user not found</h2>
+        userNotFound && (
+          <div className="card">
+            <div className="header">
+              <div className="content">
+                <span className="title">User Not Found</span>
+              </div>
+            </div>
+          </div>
+        )
       )}
     </div>
   );
