@@ -12,6 +12,7 @@ export type ApiResponse = {
 const SearchComponent = () => {
   const [searchText, setSearchText] = useState<string>('');
   const [userDetails, setUserDetails] = useState<ApiResponse[]>([]);
+  const [userNotFound, setUserNotFound] = useState(false);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -36,6 +37,11 @@ const SearchComponent = () => {
       setUserDetails(response.data);
     } catch (err) {
       console.log(err);
+      setUserDetails([]);
+      setUserNotFound(true);
+      setTimeout(() => {
+        setUserNotFound(false);
+      }, 1000);
     }
   };
 
@@ -55,8 +61,10 @@ const SearchComponent = () => {
           <button type="submit">Search</button>
         </form>
       </div>
-      {userDetails.length > 0 && (
+      {userDetails.length > 0 ? (
         <UserDetails userInfo={userDetails} />
+      ) : (
+        userNotFound && <h2>user not found</h2>
       )}
     </div>
   );

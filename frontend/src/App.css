@@ -4,11 +4,14 @@
   padding: 2rem;
   text-align: center;
 }
+
+
+
 .main-container{
   height:100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
 }
@@ -118,5 +121,10 @@ form{
   background-color: #1a1a1a;
   cursor: pointer;
   margin-left:1em;
+  width: 30%;
+  height: 2rem;
 }
 
+.btn-container{
+  margin-top: 1rem;
+}
